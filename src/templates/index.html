@@ -54,6 +54,7 @@
 
     <script>
         const form = document.getElementById('attendanceForm');
+        const formHeader = document.getElementById('formHeader');
         const idInput = document.getElementById('idNumber');
         const messageBox = document.getElementById('messageBox');
         const messageText = document.getElementById('messageText');
@@ -120,7 +121,8 @@
         });
 
         function showSuccessScreen(data) {
-            // Hide form
+            // Hide form header and form
+            formHeader.style.display = 'none';
             form.style.display = 'none';
             
             // Show success message permanently
@@ -137,8 +139,7 @@
                     <p class="shift-badge ${data.shift === 'Jornada Mañana' ? 'morning' : 'afternoon'}">
                         ${data.shift || 'N/A'}
                     </p>
-                    <br>
-                    <button class="btn-secondary" onclick="resetSession()">Registrar otra persona</button>
+                    <button class="btn-secondary" onclick="resetSession()">Registrar nuevamente</button>
                 </div>
             `;
             messageDetails.innerHTML = detailsHTML;
